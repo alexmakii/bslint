@@ -417,6 +417,12 @@ RULES_LIST = {
             ([const.VAR_AS, const.OR, const.VAR_AS], const.CONDITION),
             ([const.FUNCTION_CALL, const.AND, const.VAR_AS], const.CONDITION),
             ([const.FUNCTION_CALL, const.OR, const.VAR_AS], const.CONDITION),
+            ([const.VALUE, const.AND, const.VAR_AS], const.CONDITION),
+            ([const.VALUE, const.OR, const.VAR_AS], const.CONDITION),
+            ([const.ID, const.AND, const.VAR_AS], const.CONDITION),
+            ([const.ID, const.OR, const.VAR_AS], const.CONDITION),
+            ([const.CONDITION, const.AND, const.VAR_AS], const.CONDITION),
+            ([const.CONDITION, const.OR, const.VAR_AS], const.CONDITION),
         ],
         const.ENUMERABLE_OBJECT: [
             ([const.ENUMERABLE_OBJECT, const.SEMI_COLON, const.ENUMERABLE_OBJECT], const.PRINT_ARGUMENT),
