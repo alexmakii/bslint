@@ -577,6 +577,7 @@ RULES_LIST = {
             ([const.CONDITION, const.OR, const.CONDITION], const.CONDITION),
             ([const.IF, const.CONDITION], const.IF_STMT),
             ([const.ELSE_IF, const.CONDITION], const.ELSE_IF_STMT),
+            ([const.RETURN_STMT, const.CONDITION], const.RETURN_STMT),
         ],
         const.RETURN_STMT: [
             ([const.IF, const.CONDITION, const.THEN, const.RETURN_STMT], const.IF_STMT),
