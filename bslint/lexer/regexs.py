@@ -142,7 +142,6 @@ REGEX_LIST = [
     [r"(Library)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
     [r"(Generates)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
     [r"(Implements)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
-    [r"(Event)\b", const.KEYWORD, const.BUILT_IN_FUNCTION, const.NO_INDENTATION],
     [r"(Interface)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
     [r"(Component)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
 
