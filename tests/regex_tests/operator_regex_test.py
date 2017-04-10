@@ -10,16 +10,16 @@ class TestOperatorRegex(unittest.TestCase):
         cls.common = Common()
 
     def test_add_equal(self):
-        self.common.match_regex("+=", None, const.OPERATOR, const.OPERATOR)
+        self.common.match_regex("+=", None, const.OPERATOR, const.EQUALS)
 
     def test_subtract_equal(self):
-        self.common.match_regex("-=", None, const.OPERATOR, const.OPERATOR)
+        self.common.match_regex("-=", None, const.OPERATOR, const.EQUALS)
 
     def test_multiply_equal(self):
-        self.common.match_regex("*=", None, const.OPERATOR, const.OPERATOR)
+        self.common.match_regex("*=", None, const.OPERATOR, const.EQUALS)
 
     def test_divide_equal(self):
-        self.common.match_regex("/=", None, const.OPERATOR, const.OPERATOR)
+        self.common.match_regex("/=", None, const.OPERATOR, const.EQUALS)
 
     def test_add(self):
         self.common.match_regex("+", None, const.OPERATOR, const.PLUS)
@@ -43,10 +43,10 @@ class TestOperatorRegex(unittest.TestCase):
         self.common.match_regex("^", None, const.OPERATOR, const.OPERATOR)
 
     def test_left_shift_assign(self):
-        self.common.match_regex("<<=", None, const.OPERATOR, const.OPERATOR)
+        self.common.match_regex("<<=", None, const.OPERATOR, const.EQUALS)
 
     def test_right_shift_assign(self):
-        self.common.match_regex(">>=", None, const.OPERATOR, const.OPERATOR)
+        self.common.match_regex(">>=", None, const.OPERATOR, const.EQUALS)
 
     def test_left_shift(self):
         self.common.match_regex("<<", None, const.OPERATOR, const.OPERATOR)
@@ -55,7 +55,7 @@ class TestOperatorRegex(unittest.TestCase):
         self.common.match_regex(">>", None, const.OPERATOR, const.OPERATOR)
 
     def test_divide_integer_assign(self):
-        self.common.match_regex(r"\=", None, const.OPERATOR, const.OPERATOR)
+        self.common.match_regex(r"\=", None, const.OPERATOR, const.EQUALS)
 
     def test_mod_operator(self):
         self.common.match_regex("%", None, const.OPERATOR, const.OPERATOR)
