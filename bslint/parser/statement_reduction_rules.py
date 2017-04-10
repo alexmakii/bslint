@@ -227,6 +227,9 @@ RULES_LIST = {
         ],
         const.ANONYMOUS_FUNCTION_BLOCK: [
             ([const.ID, const.EQUALS, const.ANONYMOUS_FUNCTION_BLOCK], const.VAR_AS)
+        ],
+        const.CONDITION: [
+            ([const.ID, const.EQUALS, const.CONDITION], const.VAR_AS),
         ]
     },
     const.PRIORITY_FOUR: {
