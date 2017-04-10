@@ -164,7 +164,6 @@ REGEX_LIST = [
     [r"(MOD)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
     [r"(STOP)\b", const.KEYWORD, const.BUILT_IN_FUNCTION, const.NO_INDENTATION],
     [r"(AND)\b", const.KEYWORD, const.AND, const.NO_INDENTATION],
-    [r"(BOX)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
     [r"(EACH)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
     [r"(EVAL)\b", const.KEYWORD, const.BUILT_IN_FUNCTION, const.NO_INDENTATION],
     [r"(EXIT)\b", const.KEYWORD, const.EXIT, const.NO_INDENTATION],
