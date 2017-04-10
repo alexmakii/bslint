@@ -39,6 +39,42 @@ class TestIfParse(unittest.TestCase):
     def test_if_with_id(self):
         self.common.match_statement(const.IF_STMT, "if x")
 
+    def test_if_with_value_and_value(self):
+        self.common.match_statement(const.IF_STMT, "if 3 and 3")
+
+    def test_if_with_value_or_value(self):
+        self.common.match_statement(const.IF_STMT, "if 3 or 3")
+
+    def test_if_with_id_and_id(self):
+        self.common.match_statement(const.IF_STMT, "if x and y")
+
+    def test_if_with_id_or_id(self):
+        self.common.match_statement(const.IF_STMT, "if x or y")
+
+    def test_if_with_value_and_id(self):
+        self.common.match_statement(const.IF_STMT, "if 3 and x")
+
+    def test_if_with_value_or_id(self):
+        self.common.match_statement(const.IF_STMT, "if 3 or x")
+
+    def test_if_with_id_and_value(self):
+        self.common.match_statement(const.IF_STMT, "if x and 3")
+
+    def test_if_with_id_or_value(self):
+        self.common.match_statement(const.IF_STMT, "if x and 3")
+
+    def test_if_with_value_and_function_call(self):
+        self.common.match_statement(const.IF_STMT, "if 3 and func(arg)")
+
+    def test_if_with_value_or_function_call(self):
+        self.common.match_statement(const.IF_STMT, "if 3 or func(arg)")
+
+    def test_if_with_id_and_function_call(self):
+        self.common.match_statement(const.IF_STMT, "if x and func(arg)")
+
+    def test_if_with_id_or_function_call(self):
+        self.common.match_statement(const.IF_STMT, "if x or func(arg)")
+
     def test_if_with_function_call_and_value_id_then(self):
         self.common.match_statement(const.IF_STMT, "if func_name(msg) = \"roVideoPlayerEvent\" then")
 
