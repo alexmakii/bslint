@@ -377,9 +377,6 @@ class TestReservedWordsRegex(unittest.TestCase):
     def test_implements(self):
         self.common.match_regex("Implements", 1, const.KEYWORD, const.KEYWORD)
 
-    def test_event(self):
-        self.common.match_regex("Event", 1, const.KEYWORD, const.BUILT_IN_FUNCTION)
-
     def test_component(self):
         self.common.match_regex("Component", 1, const.KEYWORD, const.KEYWORD)
 
