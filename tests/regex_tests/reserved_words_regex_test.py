@@ -107,9 +107,6 @@ class TestReservedWordsRegex(unittest.TestCase):
     def test_eval(self):
         self.common.match_regex("EVAL", 1, const.KEYWORD, const.BUILT_IN_FUNCTION)
 
-    def test_exit(self):
-        self.common.match_regex("EXIT", 1, const.KEYWORD, const.EXIT)
-
     def test_exitwhile(self):
         self.common.match_regex("EXITWHILE", 1, const.KEYWORD, const.EXIT)
 
