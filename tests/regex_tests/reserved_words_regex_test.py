@@ -369,7 +369,7 @@ class TestReservedWordsRegex(unittest.TestCase):
         self.common.match_regex("On", 1, const.KEYWORD, const.KEYWORD)
 
     def test_library(self):
-        self.common.match_regex("Library", 1, const.KEYWORD, const.KEYWORD)
+        self.common.match_regex("Library", 1, const.KEYWORD, const.LIBRARY)
 
     def test_generate(self):
         self.common.match_regex("Generates", 1, const.KEYWORD, const.KEYWORD)

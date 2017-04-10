@@ -65,7 +65,10 @@ RULES_LIST = {
         ],
         const.KEYWORD: [
             ([const.ID, const.DOT, const.KEYWORD], const.ID)
-        ]
+        ],
+        const.VALUE: [
+            ([const.LIBRARY, const.VALUE], const.LIBRARY)
+        ],
     },
     const.PRIORITY_ONE: {
         const.CLOSE_SQUARE_BRACKET: [

@@ -14,6 +14,7 @@ RULES_LIST = {
         const.PRINT_STMT: [([const.PRINT_STMT], const.BLOCK_STMT)],
         const.FUNCTION_CALL: [([const.FUNCTION_CALL], const.BLOCK_STMT)],
         const.VAR_AS: [([const.VAR_AS], const.BLOCK_STMT)],
+        const.LIBRARY: [([const.LIBRARY], const.BLOCK_STMT)],
         const.RETURN_STMT: [([const.RETURN_STMT], const.BLOCK_STMT)],
         # endregion
 

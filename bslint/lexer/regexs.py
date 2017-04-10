@@ -141,7 +141,7 @@ REGEX_LIST = [
     [r"(Object)\b", const.KEYWORD, const.TYPE, const.NO_INDENTATION],
     [r"(Until)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
     [r"(On)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
-    [r"(Library)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
+    [r"(Library)\b", const.KEYWORD, const.LIBRARY, const.NO_INDENTATION],
     [r"(Generates)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
     [r"(Implements)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
     [r"(Interface)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
