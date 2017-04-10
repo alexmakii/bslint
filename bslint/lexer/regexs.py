@@ -145,7 +145,6 @@ REGEX_LIST = [
     [r"(Generates)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
     [r"(Implements)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
     [r"(Interface)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
-    [r"(Component)\b", const.KEYWORD, const.KEYWORD, const.NO_INDENTATION],
 
     [r"(IF)\b", const.KEYWORD, const.IF, const.INCREMENT_INDENTATION],
     [r"(THEN)\b", const.KEYWORD, const.THEN, const.NO_INDENTATION],
