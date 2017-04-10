@@ -191,6 +191,9 @@ RULES_LIST = {
             ([const.VALUE, const.COLON, const.ENUMERABLE_OBJECT], const.ASSOCIATIVE_ARRAY_ARGUMENT),
             ([const.KEYWORD, const.COLON, const.ENUMERABLE_OBJECT], const.ASSOCIATIVE_ARRAY_ARGUMENT),
             ([const.BUILT_IN_FUNCTION, const.COLON, const.ENUMERABLE_OBJECT], const.ASSOCIATIVE_ARRAY_ARGUMENT),
+        ],
+        const.CONDITION: [
+            ([const.NOT, const.CONDITION], const.CONDITION),
         ]
     },
     const.PRIORITY_THREE: {
