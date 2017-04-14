@@ -110,12 +110,20 @@ def check_skip_line(line_number):
 def check_spaces_around_operators(characters, current_char_index, operator):
     if not _command_is_active(const.SPACES_AROUND_OPERATORS):
         return
+
     allowed_spaces = config_loader.CONFIG[const.SPACES_AROUND_OPERATORS][const.PARAMS][const.SPACES_AROUND_OPERATORS]
+    allow_signed_values = config_loader.CONFIG[const.SPACES_AROUND_OPERATORS][const.PARAMS][const.SIGNED_VALUES]
+
     before_index = current_char_index - allowed_spaces - 1 - len(operator)
     after_index = current_char_index + allowed_spaces + 1
-    chars_around_operator = characters[before_index:after_index]
-    if not re.match(r"(\S{0,1})\s{" + str(allowed_spaces) + "}" + re.escape(operator) + r"\s{"
-                    + str(allowed_spaces) + r"}\S{0,1}$", chars_around_operator):
+
+    spaces = r"\s{" + str(allowed_spaces) + r"}"
+    common_operator_case = characters[before_index:after_index]
+    signed_value_case = characters[before_index-10:current_char_index+1].split("\n")[-1]
+
+    if not (re.match(r"\S?" + spaces + re.escape(operator) + spaces + "\S?$", common_operator_case)
+            or allow_signed_values and re.match(r".+([^\w\d\s][ ]*|step[ ]+|return[ ]+)[" + re.escape("+-") + "]\S$", \
+                                                signed_value_case)):
         return {const.ERROR_KEY: err_const.NO_SPACE_AROUND_OPERATORS, const.ERROR_PARAMS: [allowed_spaces]}
 
 

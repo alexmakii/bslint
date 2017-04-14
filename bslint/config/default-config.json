@@ -72,7 +72,8 @@
   "spaces_around_operators": {
     "active": true,
     "params": {
-      "spaces_around_operators": 1
+      "spaces_around_operators": 1,
+      "signed_values": false
     }
   },
   "check_method_spaces": {
