@@ -102,14 +102,13 @@ class InterfaceHandler(Process):
 
     def lint_all(self, directory):
         for dir_name, _, files in os.walk(directory):  # pylint: disable=C0103
-            relative_path = self.get_relative_path(dir_name)
-            if not self.ignore_dir(relative_path, self.bslintrc[const.IGNORE]):
-                self.lint_directory(dir_name, files)
+            self.lint_directory(dir_name, files)
 
     def lint_directory(self, dir_name, files):
         for file in files:
             filepath = os.path.join(dir_name, file)
-            self.lint_file(filepath)
+            if not self.ignore_path(filepath, self.bslintrc[const.IGNORE]):
+                self.lint_file(filepath)
 
     def lint_file(self, filepath):
         filename = filepath.replace(os.getcwd() + '/', '')
@@ -147,13 +146,15 @@ class InterfaceHandler(Process):
         number_warnings = len(self.messages[const.WARNINGS][file_name])
         self.out.write(msg_handler.get_print_msg(print_const.WARNINGS_IN_FILE, [number_warnings]))
 
-    def ignore_dir(self, relative_directory_path, directories_to_ignore):
-        for directory in directories_to_ignore:
-            directory = self.add_slashes_to_dir(directory)
-            relative_directory_path = self.add_slashes_to_dir(relative_directory_path)
+    def ignore_path(self, path, ignore_list):
+        path = self.get_relative_path(path)
+        path = self.add_slashes_to_dir(path)
 
-            if relative_directory_path.startswith(directory):
+        for ignore_path in ignore_list:
+            ignore_path = self.add_slashes_to_dir(ignore_path)
+            if path.startswith(ignore_path):
                 return True
+
         return False
 
     def _get_cli_arguments(self):
@@ -168,17 +169,16 @@ class InterfaceHandler(Process):
         bslintrc_path = os.path.join(manifest_path, ".bslintrc")
         self.bslintrc = bslint.config_loader.load_config_file(bslintrc_path, out=out)
 
-    def get_relative_path(self, dir_name):
-        directory = os.path.abspath(self.manifest_path)
-        return dir_name.replace(directory, '')
+    def get_relative_path(self, path):
+        root_dir = os.path.abspath(self.manifest_path)
+        return path.replace(root_dir, '')
 
     @staticmethod
-    def add_slashes_to_dir(directory):
-        if not directory.startswith("/"):
-            directory = "/" + directory
-        if not directory.endswith("/"):
-            directory += "/"
-        return directory
+    def add_slashes_to_dir(path):
+        path = '/' + path.strip('/')
+        if path.find('.', -5) == -1:
+            path += "/"
+        return path
 
     @staticmethod
     def file_reader(file_to_lex):
